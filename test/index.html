@@ -232,7 +232,7 @@ layout: null
     {% include verif.html %}
 </head>
 <body>
-
+<div loading="lazy">
     <!-- HEADER -->
     <header class="header">
         <div class="header-brand">
@@ -329,7 +329,7 @@ layout: null
         const POST_SLUG = p.get('p')||'';
         const MAX = parseInt(p.get('max-results'))||15;
         const START = parseInt(p.get('start-index'))||1;
-        const BID = p.get('blogid')||'3849070220815751744';
+        const BID = p.get('blogid')||'3878198361264397837';
         
         $('canonicalUrl').href = location.href;
         
@@ -440,7 +440,7 @@ layout: null
                         const link = (e.link||[]).find(l=>l.rel==='alternate')?.href||'#';
                         const slug = link.split('/').pop().replace('.html','');
                         const thumb = hd(e.media$thumbnail?.url);
-                        const relUrl = '/?p='+slug+(BID!=='3849070220815751744'?'&blogid='+BID:'');
+                        const relUrl = '/?p='+slug+(BID!=='3878198361264397837'?'&blogid='+BID:'');
                         
                         html += '<a href="'+relUrl+'" class="related-post">';
                         if(thumb) html += '<img class="related-post-img" src="'+thumb+'" alt="'+esc(t)+'" loading="lazy" onerror="this.style.display=\'none\'">';
@@ -501,7 +501,7 @@ layout: null
                 const ur=new URL(u);
                 const slug = ur.pathname.split('/').pop().replace('.html','');
                 const pp = new URLSearchParams();
-                if(BID!=='3849070220815751744') pp.set('blogid',BID);
+                if(BID!=='3878198361264397837') pp.set('blogid',BID);
                 pp.set('p',slug);
                 return '/?'+pp.toString();
             }catch(e){}
@@ -601,7 +601,7 @@ layout: null
             
             function bu(page){
                 const pp=new URLSearchParams();
-                if(BID!=='3849070220815751744')pp.set('blogid',BID);
+                if(BID!=='3878198361264397837')pp.set('blogid',BID);
                 if(LABEL && !labelMatched)pp.set('label',LABEL);
                 if(MAX!==15)pp.set('max-results',MAX);
                 if(page>1)pp.set('start-index',(page-1)*MAX+1);
@@ -632,5 +632,6 @@ layout: null
         document.head.appendChild(s);
     })();
     </script>
+    </div>
 </body>
 </html>
